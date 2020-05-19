@@ -217,5 +217,31 @@ paths:
         name: dir
         in: path
         required: true
+  '/get/rma_delivery_challan_search/{param_rma}/{param_option}':
+    get:
+      summary: Delivery Challan search
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples: {}
+      operationId: get-get-rma_delivery_challan_search
+      description: Provides simple delivery challan search
+    parameters:
+      - schema:
+          type: string
+        name: param_rma
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: param_option
+        in: path
+        required: true
 components:
   schemas: {}
