@@ -25,7 +25,7 @@ paths:
                 type: object
                 properties:
                   success:
-                    type: string
+                    type: boolean
                   dtos:
                     type: array
                     description: ''
