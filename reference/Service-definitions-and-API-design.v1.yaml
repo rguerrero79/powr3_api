@@ -1,0 +1,220 @@
+openapi: 3.0.0
+info:
+  title: Service definitions and API design
+  version: '1.0'
+  description: |-
+    POWR3 - Architecture deliverables
+    Service definitions and API design
+  contact:
+    name: Ramiro Guerrero
+    email: ramiro.guerrero@neoris.com
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/get/rma/{param_rma_tradein_or_simple}/{param_fa_case_num_tradein_or_simple}/{param_rma_or_tradein}/{param_country}/{param_po}/{param_customer_name}/{param_fa_case_num}/{param_rma_cat}/{param_date_from}/{param_date_to}/{isReturnFa}/{sort}/{dir}':
+    get:
+      summary: RMA search
+      tags: []
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                  dtos:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        customer_po:
+                          type: string
+                        country:
+                          type: string
+                        theater_code:
+                          type: string
+                        date_created:
+                          type: string
+                        rma_entity_type:
+                          type: string
+                        rma_num:
+                          type: string
+                        idd:
+                          type: string
+                        rma_category_code:
+                          type: string
+                        rma_type_code:
+                          type: string
+                        type:
+                          type: string
+                        rma_status:
+                          type: string
+                        svo_class_code:
+                          type: string
+                        payment_type:
+                          type: string
+                        rma_due_date:
+                          type: string
+                        booked_date:
+                          type: string
+                        total_ordered_qty:
+                          type: string
+                        trade_in_quote_num:
+                          type: string
+                        cust_name:
+                          type: string
+                        return_state:
+                          type: string
+                        status:
+                          type: string
+                        region_code:
+                          type: string
+              examples:
+                example-1:
+                  value:
+                    success: true
+                    dtos:
+                      - customer_po:
+                          - null
+                        country:
+                          - DE
+                        theater_code:
+                          - EU
+                        date_created:
+                          - '20200416'
+                        rma_entity_type: PRM SERVICE-US
+                        rma_num:
+                          - '800779206'
+                        idd: 671347817063
+                        rma_category_code:
+                          - S
+                        rma_type_code:
+                          - PRM SERVICE
+                        type: Rma
+                        rma_status:
+                          - 1
+                        svo_class_code: L3
+                        payment_type:
+                          - 2
+                        rma_due_date:
+                          - '20200424'
+                        booked_date:
+                          - '20200414'
+                        total_ordered_qty: 1
+                        trade_in_quote_num:
+                          - null
+                        cust_name: WEX
+                        return_state:
+                          - 1
+                        status: 1
+                        region_code:
+                          - EEA
+                      - customer_po:
+                          - null
+                        country:
+                          - DE
+                        theater_code:
+                          - EU
+                        date_created:
+                          - '20200508'
+                        rma_entity_type: PRM SERVICE-US
+                        rma_num:
+                          - '800782739'
+                        idd: 738472168063
+                        rma_category_code:
+                          - S
+                        rma_type_code:
+                          - PRM SERVICE
+                        type: Rma
+                        rma_status:
+                          - 1
+                        svo_class_code: L3
+                        payment_type:
+                          - 2
+                        rma_due_date:
+                          - '20200518'
+                        booked_date:
+                          - '20200508'
+                        total_ordered_qty: 2
+                        trade_in_quote_num:
+                          - null
+                        cust_name: ALFRED-WEGENER-INSTITUT FUR POLAR- UND MEERESFORSC
+                        return_state:
+                          - 1
+                        status: 1
+                        region_code:
+                          - EEA
+      operationId: get-get-rma
+      description: RMA search
+    parameters:
+      - schema:
+          type: string
+        name: param_rma_tradein_or_simple
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: param_fa_case_num_tradein_or_simple
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: param_rma_or_tradein
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: param_country
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: param_po
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: param_customer_name
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: param_fa_case_num
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: param_rma_cat
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: param_date_from
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: param_date_to
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: isReturnFa
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: sort
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: dir
+        in: path
+        required: true
+components:
+  schemas: {}
