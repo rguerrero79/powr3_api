@@ -74,8 +74,6 @@ paths:
                           type: string
                         region_code:
                           type: string
-                  '':
-                    type: string
               examples:
                 example-1:
                   value:
