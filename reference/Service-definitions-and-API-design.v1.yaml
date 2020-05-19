@@ -28,6 +28,7 @@ paths:
                     type: string
                   dtos:
                     type: array
+                    description: ''
                     items:
                       type: object
                       properties:
@@ -73,6 +74,8 @@ paths:
                           type: string
                         region_code:
                           type: string
+                  '':
+                    type: string
               examples:
                 example-1:
                   value:
