@@ -51,7 +51,7 @@
                 "type": "object",
                 "properties": {
                   "ship_id": {
-                    "type": "string"
+                    "type": "number"
                   }
                 }
               }
@@ -108,7 +108,7 @@
                     }
                   },
                   "ship_id": {
-                    "type": "string"
+                    "type": "number"
                   }
                 }
               }
