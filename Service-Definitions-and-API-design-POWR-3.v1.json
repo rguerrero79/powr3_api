@@ -143,6 +143,12 @@
                           },
                           "feedback": {
                             "type": "string"
+                          },
+                          "rating": {
+                            "type": "number"
+                          },
+                          "email": {
+                            "type": "string"
                           }
                         }
                       }
@@ -170,12 +176,15 @@
                   },
                   "cco_user_id": {
                     "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
                   }
                 }
               }
             }
           },
-          "description": "Passes the cco user id and a date range. If no cco user id is passed, gets the feedback created in the date range."
+          "description": "Passes the cco user id (or email) and a date range. If no cco user (or email) id is passed, gets the feedback created in the date range."
         },
         "description": "Get the feedback provided by users"
       }
@@ -208,6 +217,9 @@
                           },
                           "feedback": {
                             "type": "string"
+                          },
+                          "email": {
+                            "type": "string"
                           }
                         }
                       }
@@ -230,12 +242,18 @@
                   },
                   "feedback": {
                     "type": "string"
+                  },
+                  "rating": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
                   }
                 }
               }
             }
           },
-          "description": "Passes the cco user id and the feedback provided"
+          "description": "Passes the cco user id (or email) and the feedback provided"
         }
       }
     }
