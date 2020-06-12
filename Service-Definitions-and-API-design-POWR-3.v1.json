@@ -118,77 +118,6 @@
         }
       }
     },
-    "/get/feedback": {
-      "post": {
-        "summary": "Get feedback provided by users",
-        "operationId": "post-get-feedback",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "dtos": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "cco_user_id": {
-                            "type": "string"
-                          },
-                          "date_created": {
-                            "type": "string"
-                          },
-                          "feedback": {
-                            "type": "string"
-                          },
-                          "rating": {
-                            "type": "number"
-                          },
-                          "email": {
-                            "type": "string"
-                          }
-                        }
-                      }
-                    },
-                    "success": {
-                      "type": "boolean"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "date_from": {
-                    "type": "string"
-                  },
-                  "date_to": {
-                    "type": "string"
-                  },
-                  "cco_user_id": {
-                    "type": "string"
-                  },
-                  "email": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          },
-          "description": "Passes the cco user id (or email) and a date range. If no cco user (or email) id is passed, gets the feedback created in the date range."
-        },
-        "description": "Get the feedback provided by users"
-      }
-    },
     "/save/feedback": {
       "post": {
         "summary": "Saves the feedback provided by users",
@@ -212,14 +141,17 @@
                           "date_created": {
                             "type": "string"
                           },
-                          "cco_user_id": {
-                            "type": "string"
-                          },
-                          "feedback": {
+                          "name": {
                             "type": "string"
                           },
                           "email": {
                             "type": "string"
+                          },
+                          "comments": {
+                            "type": "string"
+                          },
+                          "rating": {
+                            "type": "number"
                           }
                         }
                       }
@@ -230,17 +162,17 @@
             }
           }
         },
-        "description": "Saves the feedback provided by users",
+        "description": "Saves the feedback provided by the logged user",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
-                  "cco_user_id": {
+                  "name": {
                     "type": "string"
                   },
-                  "feedback": {
+                  "comments": {
                     "type": "string"
                   },
                   "rating": {
@@ -253,7 +185,7 @@
               }
             }
           },
-          "description": "Passes the cco user id (or email) and the feedback provided"
+          "description": "Passes feedback provided (cco user id or email user logged in, are stored in the server)"
         }
       }
     }
