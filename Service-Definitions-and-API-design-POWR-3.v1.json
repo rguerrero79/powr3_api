@@ -24,11 +24,19 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "part_num": {
+                    "dtos": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                          "part_num": {
+                            "type": "string"
+                          }
+                        }
                       }
+                    },
+                    "success": {
+                      "type": "boolean"
                     }
                   }
                 }
@@ -72,7 +80,12 @@
                     "dtos": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                          "part_num": {
+                            "type": "string"
+                          }
+                        }
                       }
                     }
                   }
@@ -106,19 +119,124 @@
       }
     },
     "/get/feedback": {
-      "get": {
-        "summary": "Your GET endpoint",
-        "tags": [],
-        "responses": {},
-        "operationId": "get-get-feedback"
+      "post": {
+        "summary": "Get feedback provided by users",
+        "operationId": "post-get-feedback",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "dtos": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "cco_user_id": {
+                            "type": "string"
+                          },
+                          "date_created": {
+                            "type": "string"
+                          },
+                          "feedback": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "success": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "date_from": {
+                    "type": "string"
+                  },
+                  "date_to": {
+                    "type": "string"
+                  },
+                  "cco_user_id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "description": "Passes the cco user id and a date range. If no cco user id is passed, gets the feedback created in the date range."
+        },
+        "description": "Get the feedback provided by users"
       }
     },
     "/save/feedback": {
-      "get": {
-        "summary": "Your GET endpoint",
-        "tags": [],
-        "responses": {},
-        "operationId": "get-save-feedback"
+      "post": {
+        "summary": "Saves the feedback provided by users",
+        "operationId": "post-save-feedback",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "dtos": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "date_created": {
+                            "type": "string"
+                          },
+                          "cco_user_id": {
+                            "type": "string"
+                          },
+                          "feedback": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Saves the feedback provided by users",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cco_user_id": {
+                    "type": "string"
+                  },
+                  "feedback": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "description": "Passes the cco user id and the feedback provided"
+        }
       }
     }
   },
