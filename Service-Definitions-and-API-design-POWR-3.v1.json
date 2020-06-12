@@ -18,10 +18,22 @@
         "operationId": "post-get-parts-ship_id",
         "responses": {
           "200": {
-            "description": "OK"
-          },
-          "201": {
-            "description": "Created"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "part_num": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "requestBody": {
@@ -29,11 +41,15 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {}
+                "properties": {
+                  "ship_id": {
+                    "type": "string"
+                  }
+                }
               }
             }
           },
-          "description": ""
+          "description": "Passes the shipment (ship_id) contaning the parts selected"
         },
         "description": ""
       }
