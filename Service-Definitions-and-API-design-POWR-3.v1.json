@@ -12,19 +12,41 @@
   ],
   "paths": {
     "/get/parts": {
-      "get": {
-        "summary": "Your GET endpoint",
-        "tags": [],
-        "responses": {},
-        "operationId": "get-get-parts"
+      "parameters": [],
+      "post": {
+        "summary": "Get the parts selected for return",
+        "operationId": "post-get-parts-ship_id",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          },
+          "description": ""
+        },
+        "description": ""
       }
     },
     "/save/parts": {
-      "get": {
-        "summary": "Your GET endpoint",
-        "tags": [],
-        "responses": {},
-        "operationId": "get-save-parts"
+      "post": {
+        "summary": "Save the parts selected for return",
+        "operationId": "post-save-parts",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     }
   },
