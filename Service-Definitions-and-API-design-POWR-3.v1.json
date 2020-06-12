@@ -60,9 +60,65 @@
         "operationId": "post-save-parts",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "dtos": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
+        },
+        "description": "Saves the parts selected (can be 1 RMA or multiple RMAs). Also passes the shipment (ship_id) created with the selected parts.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "parts": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "ship_id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "description": "Array of parts (part_num) and ship_id"
         }
+      }
+    },
+    "/get/feedback": {
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-get-feedback"
+      }
+    },
+    "/save/feedback": {
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-save-feedback"
       }
     }
   },
